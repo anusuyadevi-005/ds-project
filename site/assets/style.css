@@ -1,0 +1,56 @@
+:root{
+  --bg:#0b1220;
+  --panel:#0f1b32;
+  --text:#e8eefc;
+  --muted:#a9b4d6;
+  --accent:#4ea1ff;
+  --accent2:#7c5cff;
+  --border:rgba(255,255,255,.08);
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background: linear-gradient(180deg, #071022 0%, var(--bg) 70%);
+  color: var(--text);
+}
+.container{max-width:1200px; margin:0 auto; padding: 0 16px;}
+.app-header{position:sticky; top:0; z-index:10; backdrop-filter: blur(10px); background: rgba(7,16,34,.75); border-bottom: 1px solid var(--border);}
+.header-inner{display:flex; justify-content:space-between; align-items:center; gap:16px; padding:16px 0;}
+.app-title{margin:0; font-size:22px; letter-spacing:.3px;}
+.app-subtitle{margin:6px 0 0; color:var(--muted); font-size:13px;}
+.status-box{padding:8px 12px; border:1px solid var(--border); border-radius:10px; color:var(--muted); font-size:13px; background: rgba(255,255,255,.03);}
+
+.controls{display:grid; grid-template-columns: 1fr 1fr 1fr auto; gap:12px; padding:18px 0;}
+.control label{display:block; font-size:12px; color:var(--muted); margin: 0 0 6px;}
+.control select{
+  width:100%; padding:10px 12px; border-radius:12px;
+  border:1px solid var(--border); background: rgba(255,255,255,.03);
+  color:var(--text); outline:none;
+}
+.control select:disabled{opacity:.6;}
+.actions{align-self:end;}
+.btn{
+  padding:10px 14px; border-radius:12px;
+  border:1px solid var(--border); background: rgba(255,255,255,.04);
+  color:var(--text); cursor:pointer;
+}
+.btn-secondary{background: rgba(255,255,255,.02);}
+.btn:hover{border-color: rgba(78,161,255,.4);}
+
+.grid{display:grid; grid-template-columns: 1.1fr .9fr; gap:12px; padding-bottom:18px;}
+.panel{background: rgba(15,27,50,.75); border: 1px solid var(--border); border-radius:16px; overflow:hidden;}
+.panel-header{padding:14px 14px; display:flex; justify-content:space-between; align-items:baseline; gap:10px; border-bottom:1px solid var(--border);}
+.panel-header h2{font-size:14px; margin:0; letter-spacing:.2px; color: var(--text);}
+.panel-meta{font-size:12px; color:var(--muted);}
+.map{height:520px;}
+.chart{height:520px;}
+.info-panel{padding:14px; margin-bottom:24px;}
+.info-text{color:var(--muted); font-size:13px; line-height:1.4;}
+
+@media (max-width: 980px){
+  .controls{grid-template-columns: 1fr 1fr;}
+  .grid{grid-template-columns: 1fr;}
+  .map,.chart{height:420px;}
+}
+

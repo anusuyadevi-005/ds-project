@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AQI Explorer</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="./assets/style.css" />
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+</head>
+<body>
+  <header class="app-header">
+    <div class="container header-inner">
+      <div>
+        <h1 class="app-title">AQI Explorer</h1>
+        <p class="app-subtitle">Filter by city & pollutant. Visualize station locations and pollutant averages.</p>
+      </div>
+      <div class="status-box" id="statusBox">Loading data...</div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="controls">
+      <div class="control">
+        <label for="citySelect">City</label>
+        <select id="citySelect" disabled>
+          <option>Loading...</option>
+        </select>
+      </div>
+
+      <div class="control">
+        <label for="pollutantSelect">Pollutant</label>
+        <select id="pollutantSelect" disabled>
+          <option>Loading...</option>
+        </select>
+      </div>
+
+      <div class="control">
+        <label for="viewMode">Chart view</label>
+        <select id="viewMode">
+          <option value="avg">Pollutant Avg by Station</option>
+          <option value="minmax">Pollutant Min/Max by Station</option>
+        </select>
+      </div>
+
+      <div class="actions">
+        <button id="resetBtn" class="btn btn-secondary" type="button">Reset</button>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="panel">
+        <div class="panel-header">
+          <h2>Stations map</h2>
+          <div class="panel-meta" id="metaText">—</div>
+        </div>
+        <div id="map" class="map"></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header">
+          <h2>Charts</h2>
+          <div class="panel-meta" id="chartMeta">—</div>
+        </div>
+        <div id="chart" class="chart"></div>
+      </div>
+    </section>
+
+    <section class="panel info-panel">
+      <div class="info-text">
+        <b>Data source:</b> `AQI.csv` station-level entries.
+        <br />
+        Missing numeric values are ignored for charts.
+      </div>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script type="module" src="./assets/app.js"></script>
+</body>
+</html>
+
